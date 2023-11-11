@@ -58,5 +58,11 @@ namespace My_First_POS_System_With_DB.Vierwer
         {
             
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            RegisterFrom reg    = new RegisterFrom();
+            reg.Show();
+        }
     }
 }

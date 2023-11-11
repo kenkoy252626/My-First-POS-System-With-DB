@@ -35,6 +35,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.admin = new System.Windows.Forms.Button();
+            this.Login = new System.Windows.Forms.Button();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.showPass = new System.Windows.Forms.CheckBox();
@@ -44,10 +48,6 @@
             this.UserBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.Login = new System.Windows.Forms.Button();
-            this.admin = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -119,6 +119,56 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(399, 474);
             this.panel2.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Teal;
+            this.label6.Location = new System.Drawing.Point(265, 429);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 18);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Forget passwor!";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.Teal;
+            this.label5.Location = new System.Drawing.Point(15, 429);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 18);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Sign up now!";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
+            // 
+            // admin
+            // 
+            this.admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(90)))), ((int)(((byte)(103)))));
+            this.admin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.admin.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.admin.Location = new System.Drawing.Point(80, 352);
+            this.admin.Name = "admin";
+            this.admin.Padding = new System.Windows.Forms.Padding(10);
+            this.admin.Size = new System.Drawing.Size(254, 49);
+            this.admin.TabIndex = 13;
+            this.admin.Text = "ADMIN";
+            this.admin.UseVisualStyleBackColor = false;
+            // 
+            // Login
+            // 
+            this.Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(90)))), ((int)(((byte)(103)))));
+            this.Login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Login.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.Login.Location = new System.Drawing.Point(80, 286);
+            this.Login.Name = "Login";
+            this.Login.Padding = new System.Windows.Forms.Padding(10);
+            this.Login.Size = new System.Drawing.Size(254, 49);
+            this.Login.TabIndex = 12;
+            this.Login.Text = "LOGIN";
+            this.Login.UseVisualStyleBackColor = false;
+            this.Login.Click += new System.EventHandler(this.Login_Click);
             // 
             // pictureBox3
             // 
@@ -225,55 +275,6 @@
             this.label3.Size = new System.Drawing.Size(116, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "CASHIER";
-            // 
-            // Login
-            // 
-            this.Login.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(90)))), ((int)(((byte)(103)))));
-            this.Login.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Login.Font = new System.Drawing.Font("Elephant", 14.25F);
-            this.Login.Location = new System.Drawing.Point(80, 286);
-            this.Login.Name = "Login";
-            this.Login.Padding = new System.Windows.Forms.Padding(10);
-            this.Login.Size = new System.Drawing.Size(254, 49);
-            this.Login.TabIndex = 12;
-            this.Login.Text = "LOGIN";
-            this.Login.UseVisualStyleBackColor = false;
-            this.Login.Click += new System.EventHandler(this.Login_Click);
-            // 
-            // admin
-            // 
-            this.admin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(90)))), ((int)(((byte)(103)))));
-            this.admin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.admin.Font = new System.Drawing.Font("Elephant", 14.25F);
-            this.admin.Location = new System.Drawing.Point(80, 352);
-            this.admin.Name = "admin";
-            this.admin.Padding = new System.Windows.Forms.Padding(10);
-            this.admin.Size = new System.Drawing.Size(254, 49);
-            this.admin.TabIndex = 13;
-            this.admin.Text = "ADMIN";
-            this.admin.UseVisualStyleBackColor = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Teal;
-            this.label5.Location = new System.Drawing.Point(15, 429);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 18);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Sign up now!";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Teal;
-            this.label6.Location = new System.Drawing.Point(265, 429);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 18);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Forget passwor!";
             // 
             // LoginPage
             // 
