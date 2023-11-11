@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Vierwer\DashBoardOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vierwer\DashBoardOrder.Designer.cs">
+      <DependentUpon>DashBoardOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vierwer\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
     <Compile Include="Vierwer\RegisterFrom.Designer.cs">
       <DependentUpon>RegisterFrom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Vierwer\DashBoardOrder.resx">
+      <DependentUpon>DashBoardOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vierwer\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
