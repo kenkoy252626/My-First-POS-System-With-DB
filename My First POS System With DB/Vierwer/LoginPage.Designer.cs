@@ -127,9 +127,9 @@
             this.label6.ForeColor = System.Drawing.Color.Teal;
             this.label6.Location = new System.Drawing.Point(265, 429);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(115, 18);
+            this.label6.Size = new System.Drawing.Size(123, 18);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Forget passwor!";
+            this.label6.Text = "Forget password!";
             // 
             // label5
             // 
