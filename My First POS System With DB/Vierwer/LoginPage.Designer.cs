@@ -211,7 +211,7 @@
             this.passText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.passText.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passText.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.passText.Location = new System.Drawing.Point(164, 207);
+            this.passText.Location = new System.Drawing.Point(164, 208);
             this.passText.Name = "passText";
             this.passText.Size = new System.Drawing.Size(95, 21);
             this.passText.TabIndex = 8;

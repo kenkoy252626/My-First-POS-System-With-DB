@@ -13,7 +13,7 @@ namespace My_First_POS_System_With_DB.Vierwer
     public partial class LoginPage : Form
     {
         
-
+        private ConnectinDB manage = new ConnectinDB();
         public LoginPage()
         {
             InitializeComponent();
@@ -56,7 +56,21 @@ namespace My_First_POS_System_With_DB.Vierwer
 
         private void Login_Click(object sender, EventArgs e)
         {
-            
+            string user =UserBox.Text;
+            string pass = PassBox.Text;
+
+            bool isAuthenticated = manage.Authentication(user, pass);
+
+            if (isAuthenticated)
+            {
+                this.Hide();
+                DashBoardOrder dashBoard = new DashBoardOrder();
+                dashBoard.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid username or password. Please try again.");
+            }
         }
 
         private void label5_Click(object sender, EventArgs e)
