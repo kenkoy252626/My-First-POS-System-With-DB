@@ -1,4 +1,5 @@
-﻿using System;
+﻿using My_First_POS_System_With_DB.Admin;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +14,7 @@ namespace My_First_POS_System_With_DB.Vierwer
     public partial class LoginPage : Form
     {
         
-        private ConnectinDB manage = new ConnectinDB();
+        private ConnectionDB manage = new ConnectionDB();
         public LoginPage()
         {
             InitializeComponent();
@@ -78,5 +79,16 @@ namespace My_First_POS_System_With_DB.Vierwer
             RegisterFrom reg    = new RegisterFrom();
             reg.Show();
         }
+
+        private void admin_Click(object sender, EventArgs e)
+        {
+            LogIn logIn = new LogIn();
+            logIn.TopLevel = false;
+            LogPanel.Controls.Add(logIn);
+            logIn.BringToFront();
+            logIn.Show();
+        }
+
+      
     }
 }
