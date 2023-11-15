@@ -21,7 +21,7 @@ namespace My_First_POS_System_With_DB
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Enabled = true;
-            LoadingBar.Increment(10);
+            LoadingBar.Increment(2);
             if(LoadingBar.Value == 100)
             {
                 timer1.Enabled = false;

@@ -56,6 +56,7 @@
             this.button1.TabIndex = 23;
             this.button1.Text = "LOGIN";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox3
             // 
@@ -89,7 +90,7 @@
             this.showPass.Location = new System.Drawing.Point(306, 341);
             this.showPass.Margin = new System.Windows.Forms.Padding(4);
             this.showPass.Name = "showPass";
-            this.showPass.Size = new System.Drawing.Size(146, 24);
+            this.showPass.Size = new System.Drawing.Size(174, 29);
             this.showPass.TabIndex = 20;
             this.showPass.Text = "ShowPassword";
             this.showPass.UseVisualStyleBackColor = true;
@@ -104,7 +105,7 @@
             this.passText.Location = new System.Drawing.Point(217, 279);
             this.passText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passText.Name = "passText";
-            this.passText.Size = new System.Drawing.Size(118, 25);
+            this.passText.Size = new System.Drawing.Size(138, 30);
             this.passText.TabIndex = 19;
             this.passText.Text = "PASSWORD";
             this.passText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -131,7 +132,7 @@
             this.userText.Location = new System.Drawing.Point(205, 185);
             this.userText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userText.Name = "userText";
-            this.userText.Size = new System.Drawing.Size(115, 25);
+            this.userText.Size = new System.Drawing.Size(135, 30);
             this.userText.TabIndex = 17;
             this.userText.Text = "USERNAME";
             this.userText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -155,7 +156,7 @@
             this.label4.Location = new System.Drawing.Point(44, 61);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(212, 77);
+            this.label4.Size = new System.Drawing.Size(255, 93);
             this.label4.TabIndex = 14;
             this.label4.Text = "Login";
             // 
@@ -166,7 +167,7 @@
             this.label3.Location = new System.Drawing.Point(13, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 31);
+            this.label3.Size = new System.Drawing.Size(139, 38);
             this.label3.TabIndex = 15;
             this.label3.Text = "ADMIN";
             // 

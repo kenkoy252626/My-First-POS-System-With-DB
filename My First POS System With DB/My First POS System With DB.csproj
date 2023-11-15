@@ -129,6 +129,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AddItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\AddItems.Designer.cs">
+      <DependentUpon>AddItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\DashBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +174,12 @@
     <Compile Include="Vierwer\RegisterFrom.Designer.cs">
       <DependentUpon>RegisterFrom.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\AddItems.resx">
+      <DependentUpon>AddItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\DashBoard.resx">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>

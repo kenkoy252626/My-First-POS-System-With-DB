@@ -29,6 +29,15 @@ namespace My_First_POS_System_With_DB.Admin
                     PassBox.PasswordChar = '●';
                 }
             }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (PassBox.Text == "" && UserBox.Text == "")
+            {
+                DashBoard dash = new DashBoard();
+                dash.Show();
+            }
         }
+    }
     }
 
