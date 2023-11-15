@@ -116,60 +116,83 @@ namespace My_First_POS_System_With_DB
 
 
 
-        public static void AddProduct(string itemName, decimal itemPrices, int itemStocks, Image image, string category)
+
+        public static int GetCategoryId(string category)
         {
             using (MySqlConnection connection = GetConnection())
             {
-                try
+                string categoryIdQuery = "SELECT Category_ID FROM tb_category WHERE CategoryProduct = @Category";
+
+                using (MySqlCommand categoryIdCommand = new MySqlCommand(categoryIdQuery, connection))
                 {
-                    string categoryIdQuery = "SELECT Category_ID FROM tb_category WHERE CategoryProduct = @Category";
-                    using (MySqlCommand categoryIdCommand = new MySqlCommand(categoryIdQuery, connection))
-                    {
-                        categoryIdCommand.Parameters.AddWithValue("@Category", category);
+                    categoryIdCommand.Parameters.AddWithValue("@Category", category);
 
-                        object categoryIdResult = categoryIdCommand.ExecuteScalar();
-                        int categoryId = categoryIdResult != null ? Convert.ToInt32(categoryIdResult) : -1;
-
-                        if (categoryId == -1)
-                        {
-                            MessageBox.Show("Category does not exist. Please add the category first.");
-                            return;
-                        }
-
-                        string insertQuery = "INSERT INTO tb_item (Category_ID,ItemName,ItemPrice,ItemStock,ItemPicture) VALUES (@Category_ID,@ItemName,@ItemPrice,@ItemStock,@ItemPicture)";
-                        using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
-                        {
-                            insertCommand.Parameters.AddWithValue("@Category_ID", categoryId);
-                            insertCommand.Parameters.AddWithValue("@ItemName", itemName);
-                            insertCommand.Parameters.AddWithValue("@ItemPrice", itemPrices);
-                            insertCommand.Parameters.AddWithValue("@ItemStock", itemStocks);
-
-                            if (image != null)
-                            {
-                                using (MemoryStream ms = new MemoryStream())
-                                {
-                                    image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                                    insertCommand.Parameters.AddWithValue("@ItemPicture", ms.ToArray());
-                                }
-                            }
-                            else
-                            {
-                                insertCommand.Parameters.AddWithValue("@ItemPicture", DBNull.Value);
-                            }
-
-                            insertCommand.ExecuteNonQuery();
-                        }
-
-                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"An error occurred while adding the product: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    object categoryIdResult = categoryIdCommand.ExecuteScalar();
+                    return categoryIdResult != null ? Convert.ToInt32(categoryIdResult) : -1;
                 }
             }
         }
 
+        public static void AddProduct(string itemName, decimal itemPrices, int itemStocks, Image image, string category)
+        {
+            try
+            {
+                int categoryId = GetCategoryId(category);
+
+                if (categoryId == -1)
+                {
+                    MessageBox.Show("Category does not exist. Please add the category first.");
+                    return;
+                }
+
+                using (MySqlConnection connection = GetConnection())
+                {
+                    string insertQuery = "INSERT INTO tb_item (Category_ID, ItemName, ItemPrice, ItemStock, ItemPicture) VALUES (@Category_ID, @ItemName, @ItemPrice, @ItemStock, @ItemPicture)";
+
+                    using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
+                    {
+                        insertCommand.Parameters.AddWithValue("@Category_ID", categoryId);
+                        insertCommand.Parameters.AddWithValue("@ItemName", itemName);
+                        insertCommand.Parameters.AddWithValue("@ItemPrice", itemPrices);
+                        insertCommand.Parameters.AddWithValue("@ItemStock", itemStocks);
+
+                        if (image != null)
+                        {
+                            using (MemoryStream ms = new MemoryStream())
+                            {
+                                image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                                insertCommand.Parameters.AddWithValue("@ItemPicture", ms.ToArray());
+                            }
+                        }
+                        else
+                        {
+                            insertCommand.Parameters.AddWithValue("@ItemPicture", DBNull.Value);
+                        }
+
+                        insertCommand.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while adding the product: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        public static void DisplayAndSearch(string query, DataGridView dgv)
+        {
+            string sql = query;
+            MySqlConnection connection = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(sql, connection);
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            DataTable tbl = new DataTable();
+            adp.Fill(tbl);
+            dgv.DataSource = tbl;
+            connection.Close();
+        }
 
 
     }
