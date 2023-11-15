@@ -12,7 +12,7 @@ namespace My_First_POS_System_With_DB
 {
     internal class ConnectionDB
     {
-        private static string con = "Server=localhost;Port=3306;Database=pointofsale_db;User Id=root;Password='';";
+        public static string con = "Server=localhost;Port=3306;Database=pointofsale_db;User Id=root;Password='';";
 
         public static MySqlConnection GetConnection()
         {
@@ -116,98 +116,66 @@ namespace My_First_POS_System_With_DB
 
 
 
-
         public static void AddProduct(string itemName, decimal itemPrices, int itemStocks, Image image, string category)
         {
             using (MySqlConnection connection = GetConnection())
             {
                 try
                 {
-                    // First, retrieve the Category_ID based on the category name
-                    int categoryId = GetCategoryIdByName(category, connection);
-
-                    // Check if the category exists
-                    if (categoryId == -1)
+                    string categoryIdQuery = "SELECT Category_ID FROM tb_category WHERE CategoryProduct = @Category";
+                    using (MySqlCommand categoryIdCommand = new MySqlCommand(categoryIdQuery, connection))
                     {
-                        // Category does not exist, you may want to handle this situation accordingly
-                        MessageBox.Show("Category does not exist. Please add the category first.");
-                        return;
-                    }
+                        categoryIdCommand.Parameters.AddWithValue("@Category", category);
 
-                    // Now, insert into tb_item with the obtained Category_ID
-                    string query = "INSERT INTO tb_item (Category_ID, ItemName, ItemPrice, ItemStock, ItemPicture) VALUES (@Category, @Name, @Price, @Stock, @Image)";
-                    using (MySqlCommand command = new MySqlCommand(query, connection))
-                    {
-                        command.Parameters.AddWithValue("@Category", categoryId);
-                        command.Parameters.AddWithValue("@Name", itemName);
-                        command.Parameters.AddWithValue("@Price", itemPrices);
-                        command.Parameters.AddWithValue("@Stock", itemStocks);
+                        object categoryIdResult = categoryIdCommand.ExecuteScalar();
+                        int categoryId = categoryIdResult != null ? Convert.ToInt32(categoryIdResult) : -1;
 
-                        // Convert Image to byte array before storing in the database (this is just a simple example)
-                        byte[] imageData = ImageToByteArray(image);
-                        command.Parameters.AddWithValue("@Image", imageData);
+                        if (categoryId == -1)
+                        {
+                            MessageBox.Show("Category does not exist. Please add the category first.");
+                            return;
+                        }
 
-                        command.ExecuteNonQuery();
+                        string insertQuery = "INSERT INTO tb_item (Category_ID,ItemName,ItemPrice,ItemStock,ItemPicture) VALUES (@Category_ID,@ItemName,@ItemPrice,@ItemStock,@ItemPicture)";
+                        using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, connection))
+                        {
+                            insertCommand.Parameters.AddWithValue("@Category_ID", categoryId);
+                            insertCommand.Parameters.AddWithValue("@ItemName", itemName);
+                            insertCommand.Parameters.AddWithValue("@ItemPrice", itemPrices);
+                            insertCommand.Parameters.AddWithValue("@ItemStock", itemStocks);
+
+                            if (image != null)
+                            {
+                                using (MemoryStream ms = new MemoryStream())
+                                {
+                                    image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+                                    insertCommand.Parameters.AddWithValue("@ItemPicture", ms.ToArray());
+                                }
+                            }
+                            else
+                            {
+                                insertCommand.Parameters.AddWithValue("@ItemPicture", DBNull.Value);
+                            }
+
+                            insertCommand.ExecuteNonQuery();
+                        }
+
+                        MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"An error occurred while adding the product: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                // The 'using' statement will automatically close the connection when it goes out of scope
             }
         }
 
 
 
-
-        private static int GetCategoryIdByName(string category, MySqlConnection connection)
-        {
-            string query = "SELECT Category_ID FROM tb_category WHERE CategoryProduct = @Category";
-            using (MySqlCommand command = new MySqlCommand(query, connection))
-            {
-                command.Parameters.AddWithValue("@Category", category);
-
-                object result;
-
-                try
-                {
-                    connection.Open();  // Open the connection here
-                    result = command.ExecuteScalar();
-                }
-                finally
-                {
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        connection.Close();  // Ensure the connection is closed, even in case of an exception
-                    }
-                }
-
-                return result != null ? Convert.ToInt32(result) : -1; // Return -1 if the category does not exist
-            }
-            // The 'using' statement will automatically close the connection when it goes out of scope
-        }
-
-
-        private static byte[] ImageToByteArray(Image image)
-        {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                // Ensure the image is not null
-                if (image != null)
-                {
-                    image.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                    return ms.ToArray();
-                }
-                else
-                {
-                    return null; // or throw an exception, depending on your requirements
-                }
-            }
-        }
     }
-
 }
+
+
 
     
 
