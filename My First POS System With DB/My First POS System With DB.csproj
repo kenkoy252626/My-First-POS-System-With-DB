@@ -154,6 +154,12 @@
       <DependentUpon>LogIn.cs</DependentUpon>
     </Compile>
     <Compile Include="DB\ConnectinDB.cs" />
+    <Compile Include="Images\Product.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Images\Product.Designer.cs">
+      <DependentUpon>Product.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vierwer\DashBoardOrder.cs">
@@ -191,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Images\Product.resx">
+      <DependentUpon>Product.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

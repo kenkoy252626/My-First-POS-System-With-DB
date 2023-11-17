@@ -196,9 +196,26 @@ namespace My_First_POS_System_With_DB
 
 
 
-      
+        public static DataTable DisplayProduct(string query)
+        {
+            DataTable dt = new DataTable();
 
-}
+            // Your database connection logic
+            MySqlConnection connection = GetConnection();
+            {
+                MySqlCommand command = new MySqlCommand(query, connection);
+                MySqlDataAdapter adapter = new MySqlDataAdapter(command);
+
+             
+                adapter.Fill(dt);
+                connection.Close();
+            }
+
+            return dt;
+        }
+
+
+    }
 }
 
 
