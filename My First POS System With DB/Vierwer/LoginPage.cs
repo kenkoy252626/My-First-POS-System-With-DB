@@ -74,11 +74,7 @@ namespace My_First_POS_System_With_DB.Vierwer
             }
         }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
-            RegisterFrom reg    = new RegisterFrom();
-            reg.Show();
-        }
+       
 
         private void admin_Click(object sender, EventArgs e)
         {
@@ -89,6 +85,15 @@ namespace My_First_POS_System_With_DB.Vierwer
             logIn.Show();
         }
 
-      
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Register_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            RegisterFrom reg = new RegisterFrom();
+            reg.Show();
+        }
     }
 }

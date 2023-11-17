@@ -44,34 +44,34 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+            this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 242);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 16);
+            this.panel1.Size = new System.Drawing.Size(871, 16);
             this.panel1.TabIndex = 0;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+            this.panel3.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(800, 21);
+            this.panel3.Size = new System.Drawing.Size(871, 21);
             this.panel3.TabIndex = 1;
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+            this.panel4.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(776, 21);
+            this.panel4.Location = new System.Drawing.Point(847, 21);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(24, 221);
             this.panel4.TabIndex = 2;
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
+            this.panel5.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 21);
             this.panel5.Name = "panel5";
@@ -81,17 +81,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Elephant", 39.74999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(192, 98);
+            this.label1.Font = new System.Drawing.Font("Elephant", 49.74999F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(172, 79);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(520, 68);
+            this.label1.Size = new System.Drawing.Size(655, 87);
             this.label1.TabIndex = 3;
             this.label1.Text = "KENKS  STORE";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(82, 74);
+            this.pictureBox1.Location = new System.Drawing.Point(64, 74);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +103,8 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(625, 151);
+            this.label2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label2.Location = new System.Drawing.Point(653, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 15);
             this.label2.TabIndex = 5;
@@ -111,9 +113,9 @@
             // LoadingBar
             // 
             this.LoadingBar.ForeColor = System.Drawing.Color.Red;
-            this.LoadingBar.Location = new System.Drawing.Point(24, 232);
+            this.LoadingBar.Location = new System.Drawing.Point(24, 229);
             this.LoadingBar.Name = "LoadingBar";
-            this.LoadingBar.Size = new System.Drawing.Size(754, 10);
+            this.LoadingBar.Size = new System.Drawing.Size(822, 13);
             this.LoadingBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.LoadingBar.TabIndex = 6;
             // 
@@ -126,8 +128,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
-            this.ClientSize = new System.Drawing.Size(800, 258);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(871, 258);
             this.ControlBox = false;
             this.Controls.Add(this.LoadingBar);
             this.Controls.Add(this.label2);

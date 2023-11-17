@@ -28,121 +28,151 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DashBoard));
             this.label1 = new System.Windows.Forms.Label();
-            this.account = new System.Windows.Forms.Button();
             this.flow = new System.Windows.Forms.FlowLayoutPanel();
+            this.Login = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cashier = new System.Windows.Forms.Button();
             this.items = new System.Windows.Forms.Button();
-            this.casheirs = new System.Windows.Forms.Button();
-            this.transaction = new System.Windows.Forms.Button();
             this.logout = new System.Windows.Forms.Button();
-            this.print = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 35);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(50, 168);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(77, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            // 
-            // account
-            // 
-            this.account.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.account.Location = new System.Drawing.Point(11, 113);
-            this.account.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.account.Name = "account";
-            this.account.Size = new System.Drawing.Size(137, 58);
-            this.account.TabIndex = 2;
-            this.account.Text = "Account";
-            this.account.UseVisualStyleBackColor = true;
+            this.label1.Text = "Admin";
             // 
             // flow
             // 
             this.flow.BackColor = System.Drawing.Color.White;
-            this.flow.Location = new System.Drawing.Point(152, 19);
+            this.flow.Location = new System.Drawing.Point(176, 42);
             this.flow.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.flow.Name = "flow";
-            this.flow.Size = new System.Drawing.Size(1192, 671);
+            this.flow.Size = new System.Drawing.Size(1207, 683);
             this.flow.TabIndex = 3;
+            // 
+            // Login
+            // 
+            this.Login.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.Login.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.Login.ForeColor = System.Drawing.Color.GhostWhite;
+            this.Login.Location = new System.Drawing.Point(12, 231);
+            this.Login.Name = "Login";
+            this.Login.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.Login.Size = new System.Drawing.Size(159, 49);
+            this.Login.TabIndex = 13;
+            this.Login.Text = "Account";
+            this.Login.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.button1.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.button1.ForeColor = System.Drawing.Color.GhostWhite;
+            this.button1.Location = new System.Drawing.Point(12, 427);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.button1.Size = new System.Drawing.Size(159, 49);
+            this.button1.TabIndex = 14;
+            this.button1.Text = "Transaction";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // cashier
+            // 
+            this.cashier.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.cashier.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.cashier.ForeColor = System.Drawing.Color.GhostWhite;
+            this.cashier.Location = new System.Drawing.Point(12, 358);
+            this.cashier.Name = "cashier";
+            this.cashier.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.cashier.Size = new System.Drawing.Size(159, 49);
+            this.cashier.TabIndex = 15;
+            this.cashier.Text = "Cashier";
+            this.cashier.UseVisualStyleBackColor = false;
+            this.cashier.Click += new System.EventHandler(this.cashier_Click);
             // 
             // items
             // 
-            this.items.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.items.Location = new System.Drawing.Point(11, 190);
-            this.items.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.items.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.items.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.items.ForeColor = System.Drawing.Color.GhostWhite;
+            this.items.Location = new System.Drawing.Point(12, 295);
             this.items.Name = "items";
-            this.items.Size = new System.Drawing.Size(137, 58);
-            this.items.TabIndex = 4;
+            this.items.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.items.Size = new System.Drawing.Size(159, 49);
+            this.items.TabIndex = 16;
             this.items.Text = "Items";
-            this.items.UseVisualStyleBackColor = true;
-            this.items.Click += new System.EventHandler(this.Items_Click);
-            // 
-            // casheirs
-            // 
-            this.casheirs.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.casheirs.Location = new System.Drawing.Point(11, 273);
-            this.casheirs.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.casheirs.Name = "casheirs";
-            this.casheirs.Size = new System.Drawing.Size(137, 58);
-            this.casheirs.TabIndex = 5;
-            this.casheirs.Text = "Casheirs";
-            this.casheirs.UseVisualStyleBackColor = true;
-            // 
-            // transaction
-            // 
-            this.transaction.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.transaction.Location = new System.Drawing.Point(11, 352);
-            this.transaction.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.transaction.Name = "transaction";
-            this.transaction.Size = new System.Drawing.Size(137, 58);
-            this.transaction.TabIndex = 6;
-            this.transaction.Text = "Transaction";
-            this.transaction.UseVisualStyleBackColor = true;
+            this.items.UseVisualStyleBackColor = false;
+            this.items.Click += new System.EventHandler(this.items_Click_1);
             // 
             // logout
             // 
-            this.logout.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logout.Location = new System.Drawing.Point(26, 540);
-            this.logout.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.logout.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.logout.ForeColor = System.Drawing.Color.GhostWhite;
+            this.logout.Location = new System.Drawing.Point(31, 670);
             this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(100, 58);
-            this.logout.TabIndex = 8;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = true;
+            this.logout.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.logout.Size = new System.Drawing.Size(124, 55);
+            this.logout.TabIndex = 17;
+            this.logout.Text = "Log Out";
+            this.logout.UseVisualStyleBackColor = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
-            // print
+            // button5
             // 
-            this.print.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.print.Location = new System.Drawing.Point(26, 465);
-            this.print.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.print.Name = "print";
-            this.print.Size = new System.Drawing.Size(100, 58);
-            this.print.TabIndex = 7;
-            this.print.Text = "Print";
-            this.print.UseVisualStyleBackColor = true;
+            this.button5.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.button5.Font = new System.Drawing.Font("Elephant", 14.25F);
+            this.button5.ForeColor = System.Drawing.Color.GhostWhite;
+            this.button5.Location = new System.Drawing.Point(43, 615);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.button5.Size = new System.Drawing.Size(102, 49);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "Print";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(31, 64);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(114, 92);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
             // 
             // DashBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.ClientSize = new System.Drawing.Size(1368, 718);
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.ClientSize = new System.Drawing.Size(1431, 765);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.logout);
-            this.Controls.Add(this.print);
-            this.Controls.Add(this.transaction);
-            this.Controls.Add(this.casheirs);
             this.Controls.Add(this.items);
+            this.Controls.Add(this.cashier);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Login);
             this.Controls.Add(this.flow);
-            this.Controls.Add(this.account);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "DashBoard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoard";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,12 +180,13 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button account;
         private System.Windows.Forms.FlowLayoutPanel flow;
+        private System.Windows.Forms.Button Login;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button cashier;
         private System.Windows.Forms.Button items;
-        private System.Windows.Forms.Button casheirs;
-        private System.Windows.Forms.Button transaction;
         private System.Windows.Forms.Button logout;
-        private System.Windows.Forms.Button print;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

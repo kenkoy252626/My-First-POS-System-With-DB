@@ -45,7 +45,7 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(90)))), ((int)(((byte)(103)))));
+            this.button1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Elephant", 14.25F);
             this.button1.Location = new System.Drawing.Point(153, 393);
@@ -86,11 +86,11 @@
             // 
             this.showPass.AutoSize = true;
             this.showPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.showPass.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.showPass.ForeColor = System.Drawing.Color.Blue;
             this.showPass.Location = new System.Drawing.Point(306, 341);
             this.showPass.Margin = new System.Windows.Forms.Padding(4);
             this.showPass.Name = "showPass";
-            this.showPass.Size = new System.Drawing.Size(174, 29);
+            this.showPass.Size = new System.Drawing.Size(146, 24);
             this.showPass.TabIndex = 20;
             this.showPass.Text = "ShowPassword";
             this.showPass.UseVisualStyleBackColor = true;
@@ -99,13 +99,14 @@
             // passText
             // 
             this.passText.AutoSize = true;
+            this.passText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.passText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.passText.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passText.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.passText.Location = new System.Drawing.Point(217, 279);
             this.passText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passText.Name = "passText";
-            this.passText.Size = new System.Drawing.Size(138, 30);
+            this.passText.Size = new System.Drawing.Size(118, 25);
             this.passText.TabIndex = 19;
             this.passText.Text = "PASSWORD";
             this.passText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -126,13 +127,14 @@
             // userText
             // 
             this.userText.AutoSize = true;
+            this.userText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.userText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userText.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userText.ForeColor = System.Drawing.SystemColors.ButtonShadow;
             this.userText.Location = new System.Drawing.Point(205, 185);
             this.userText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userText.Name = "userText";
-            this.userText.Size = new System.Drawing.Size(135, 30);
+            this.userText.Size = new System.Drawing.Size(115, 25);
             this.userText.TabIndex = 17;
             this.userText.Text = "USERNAME";
             this.userText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -152,22 +154,26 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Elephant", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
             this.label4.Location = new System.Drawing.Point(44, 61);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(255, 93);
+            this.label4.Size = new System.Drawing.Size(212, 77);
             this.label4.TabIndex = 14;
             this.label4.Text = "Login";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Elephant", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
             this.label3.Location = new System.Drawing.Point(13, 30);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 38);
+            this.label3.Size = new System.Drawing.Size(116, 31);
             this.label3.TabIndex = 15;
             this.label3.Text = "ADMIN";
             // 
@@ -175,7 +181,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
+            this.BackColor = System.Drawing.Color.CornflowerBlue;
             this.ClientSize = new System.Drawing.Size(513, 522);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox3);
