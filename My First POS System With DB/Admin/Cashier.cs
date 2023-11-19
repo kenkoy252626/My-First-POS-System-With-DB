@@ -23,9 +23,16 @@ namespace My_First_POS_System_With_DB.Admin
         public void Display()
         {
             // Specify the SQL query with the join
-            string query = "SELECT tb_cashier.FirstName, tb_cashier.LastName, tb_cashier.Gender, tb_cashier.MiddleName, tb_cashier.PictureCashier, tb_login.Username " +
-                "FROM tb_cashier " +
-                "INNER JOIN tb_login ON tb_cashier.Login_ID = tb_login.Login_ID;";
+            string query = "SELECT " +
+                    "UPPER(tb_cashier.FirstName) AS FirstName, " +
+                    "UPPER(tb_cashier.LastName) AS LastName, " +
+                    "UPPER(tb_cashier.Gender) AS Gender, " +
+                    "UPPER(tb_cashier.MiddleName) AS MiddleInitial, " +
+                    "UPPER(tb_cashier.PictureCashier) AS PictureCashier, " +
+                    "UPPER(tb_login.Username) AS Username " +
+                    "FROM tb_cashier " +
+                    "INNER JOIN tb_login ON tb_cashier.Login_ID = tb_login.Login_ID;";
+
 
 
             // Assuming that DisplayAndSearch takes the query and dataGridView as parameters
@@ -70,7 +77,7 @@ namespace My_First_POS_System_With_DB.Admin
                     string lastName = selectedRow.Cells["Column5"].Value?.ToString();
                     string middleName = selectedRow.Cells["Column4"].Value?.ToString();
 
-                    string fullName = $"{firstName} {middleName} {lastName}";
+                    string fullName = $"{lastName},{firstName} {middleName}. ";
 
                     // Display the full name in the fullnameText label
                     fullnameText.Text = fullName;

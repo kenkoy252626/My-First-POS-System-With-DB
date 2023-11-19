@@ -21,7 +21,6 @@ namespace My_First_POS_System_With_DB.Vierwer
             InitializeComponent();
             Display();
         }
-
         public void Display()
         {
             // Retrieve image data from the database
@@ -43,10 +42,27 @@ namespace My_First_POS_System_With_DB.Vierwer
                     pictureBox.Height = 150; // Set picture box height as needed
                     pictureBox.Image = Image.FromStream(ms); // Load image from byte array
 
+                    // Attach a click event handler to each PictureBox
+                    pictureBox.Click += PictureBox_Click;
+
                     flowProduct.Controls.Add(pictureBox); // Add the PictureBox to the FlowLayoutPanel
                 }
             }
         }
+
+        // Click event handler for PictureBoxes
+        private void PictureBox_Click(object sender, EventArgs e)
+        {
+            // Perform actions when a PictureBox is clicked
+            if (sender is PictureBox clickedPictureBox)
+            {
+                // Example action: Change border color to indicate selection
+                clickedPictureBox.BackColor = Color.Blue;
+
+                // You can perform other actions here when a PictureBox is clicked
+            }
+        }
+
 
     }
 }

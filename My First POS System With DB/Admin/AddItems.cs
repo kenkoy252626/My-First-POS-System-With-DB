@@ -98,9 +98,16 @@ namespace My_First_POS_System_With_DB.Admin
         public void Display()
         {
             // Specify the SQL query with the join
-            string query = "SELECT tb_item.ItemName ,tb_category.CategoryProduct, tb_item.ItemPrice, tb_item.ItemStock, tb_item.ItemPicture,tb_item.Item_ID " +
-                "FROM tb_item " +
-                "INNER JOIN tb_category ON tb_item.Category_ID = tb_category.Category_ID;";
+            string query = "SELECT " +
+                   "UPPER(tb_item.ItemName) AS ItemName, " +
+                   "UPPER(tb_category.CategoryProduct) AS CategoryProduct, " +
+                   "tb_item.ItemPrice, " +
+                   "tb_item.ItemStock, " +
+                   "UPPER(tb_item.ItemPicture) AS ItemPicture, " +
+                   "tb_item.Item_ID " +
+                   "FROM tb_item " +
+                   "INNER JOIN tb_category ON tb_item.Category_ID = tb_category.Category_ID;";
+
 
             // Assuming that DisplayAndSearch takes the query and dataGridView as parameters
             ConnectionDB.DisplayAndSearch(query, itemShow);

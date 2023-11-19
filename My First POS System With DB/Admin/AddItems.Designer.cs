@@ -37,7 +37,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Changes = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,7 +51,6 @@
             this.pictureitem = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.itemShow = new System.Windows.Forms.DataGridView();
-            this.search = new System.Windows.Forms.TextBox();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,6 +59,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.search = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureitem)).BeginInit();
             this.panel2.SuspendLayout();
@@ -70,7 +69,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.panel1.Controls.Add(this.Changes);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -88,23 +86,13 @@
             this.panel1.Size = new System.Drawing.Size(1116, 359);
             this.panel1.TabIndex = 0;
             // 
-            // Changes
-            // 
-            this.Changes.Location = new System.Drawing.Point(945, 265);
-            this.Changes.Name = "Changes";
-            this.Changes.Size = new System.Drawing.Size(49, 37);
-            this.Changes.TabIndex = 13;
-            this.Changes.Text = "button1";
-            this.Changes.UseVisualStyleBackColor = true;
-   
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(710, 210);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 16);
+            this.label5.Size = new System.Drawing.Size(99, 19);
             this.label5.TabIndex = 12;
             this.label5.Text = "CATEGORY";
             // 
@@ -113,7 +101,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(617, 194);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.Size = new System.Drawing.Size(0, 15);
             this.label4.TabIndex = 11;
             // 
             // label3
@@ -122,7 +110,7 @@
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(704, 150);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(83, 16);
+            this.label3.Size = new System.Drawing.Size(105, 19);
             this.label3.TabIndex = 10;
             this.label3.Text = "ITEMSTOCK";
             // 
@@ -132,7 +120,7 @@
             this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(704, 85);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 16);
+            this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 9;
             this.label2.Text = "ITEMPRICE";
             // 
@@ -142,7 +130,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(704, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 16);
+            this.label1.Size = new System.Drawing.Size(94, 19);
             this.label1.TabIndex = 8;
             this.label1.Text = "ITEMNAME";
             // 
@@ -243,19 +231,11 @@
             this.itemShow.Margin = new System.Windows.Forms.Padding(2);
             this.itemShow.Name = "itemShow";
             this.itemShow.ReadOnly = true;
+            this.itemShow.RowHeadersWidth = 51;
             this.itemShow.RowTemplate.Height = 28;
             this.itemShow.Size = new System.Drawing.Size(1040, 200);
             this.itemShow.TabIndex = 14;
             this.itemShow.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.itemShow_CellClick);
-            // 
-            // search
-            // 
-            this.search.Location = new System.Drawing.Point(728, 14);
-            this.search.Multiline = true;
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(257, 40);
-            this.search.TabIndex = 13;
-            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
             // 
             // Column1
             // 
@@ -275,8 +255,10 @@
             // 
             this.Column8.DataPropertyName = "Item_ID";
             this.Column8.HeaderText = "ID ";
+            this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
             // 
             // Column2
             // 
@@ -359,6 +341,16 @@
             this.Column7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
+            // search
+            // 
+            this.search.Font = new System.Drawing.Font("Algerian", 7.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.search.Location = new System.Drawing.Point(728, 14);
+            this.search.Multiline = true;
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(257, 40);
+            this.search.TabIndex = 13;
+            this.search.TextChanged += new System.EventHandler(this.search_TextChanged);
+            // 
             // AddItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,7 +393,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox search;
         private System.Windows.Forms.DataGridView itemShow;
-        private System.Windows.Forms.Button Changes;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;

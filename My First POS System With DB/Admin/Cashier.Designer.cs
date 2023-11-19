@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Cashier));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.firstnameText = new System.Windows.Forms.Label();
@@ -48,15 +48,15 @@
             this.userText = new System.Windows.Forms.Label();
             this.fullnameText = new System.Windows.Forms.Label();
             this.showCashier = new System.Windows.Forms.DataGridView();
+            this.label14 = new System.Windows.Forms.Label();
+            this.searchBox = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label14 = new System.Windows.Forms.Label();
-            this.searchBox = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.showCashier)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +79,7 @@
             this.label1.Location = new System.Drawing.Point(150, 273);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 37);
+            this.label1.Size = new System.Drawing.Size(204, 45);
             this.label1.TabIndex = 1;
             this.label1.Text = "Hello I\'m  ";
             // 
@@ -91,7 +91,7 @@
             this.firstnameText.Location = new System.Drawing.Point(326, 273);
             this.firstnameText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.firstnameText.Name = "firstnameText";
-            this.firstnameText.Size = new System.Drawing.Size(101, 37);
+            this.firstnameText.Size = new System.Drawing.Size(127, 45);
             this.firstnameText.TabIndex = 7;
             this.firstnameText.Text = "label7";
             // 
@@ -103,7 +103,7 @@
             this.label8.Location = new System.Drawing.Point(431, 273);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 37);
+            this.label8.Size = new System.Drawing.Size(40, 45);
             this.label8.TabIndex = 8;
             this.label8.Text = "! ";
             // 
@@ -115,7 +115,7 @@
             this.label9.Location = new System.Drawing.Point(665, 58);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(159, 37);
+            this.label9.Size = new System.Drawing.Size(200, 45);
             this.label9.TabIndex = 9;
             this.label9.Text = "Fullname:";
             // 
@@ -127,7 +127,7 @@
             this.label10.Location = new System.Drawing.Point(665, 162);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(163, 37);
+            this.label10.Size = new System.Drawing.Size(204, 45);
             this.label10.TabIndex = 10;
             this.label10.Text = "Birthdate:";
             // 
@@ -139,7 +139,7 @@
             this.label11.Location = new System.Drawing.Point(665, 113);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(168, 37);
+            this.label11.Size = new System.Drawing.Size(210, 45);
             this.label11.TabIndex = 11;
             this.label11.Text = "Username:";
             // 
@@ -151,7 +151,7 @@
             this.label12.Location = new System.Drawing.Point(665, 219);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(130, 37);
+            this.label12.Size = new System.Drawing.Size(164, 45);
             this.label12.TabIndex = 12;
             this.label12.Text = "Gender:";
             // 
@@ -163,7 +163,7 @@
             this.genderText.Location = new System.Drawing.Point(850, 219);
             this.genderText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.genderText.Name = "genderText";
-            this.genderText.Size = new System.Drawing.Size(103, 37);
+            this.genderText.Size = new System.Drawing.Size(130, 45);
             this.genderText.TabIndex = 15;
             this.genderText.Text = "label3";
             // 
@@ -175,7 +175,7 @@
             this.birthText.Location = new System.Drawing.Point(850, 162);
             this.birthText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.birthText.Name = "birthText";
-            this.birthText.Size = new System.Drawing.Size(103, 37);
+            this.birthText.Size = new System.Drawing.Size(130, 45);
             this.birthText.TabIndex = 16;
             this.birthText.Text = "label4";
             // 
@@ -187,7 +187,7 @@
             this.userText.Location = new System.Drawing.Point(850, 113);
             this.userText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.userText.Name = "userText";
-            this.userText.Size = new System.Drawing.Size(102, 37);
+            this.userText.Size = new System.Drawing.Size(129, 45);
             this.userText.TabIndex = 17;
             this.userText.Text = "label5";
             // 
@@ -199,7 +199,7 @@
             this.fullnameText.Location = new System.Drawing.Point(850, 58);
             this.fullnameText.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fullnameText.Name = "fullnameText";
-            this.fullnameText.Size = new System.Drawing.Size(103, 37);
+            this.fullnameText.Size = new System.Drawing.Size(130, 45);
             this.fullnameText.TabIndex = 18;
             this.fullnameText.Text = "label6";
             // 
@@ -225,80 +225,6 @@
             this.showCashier.TabIndex = 19;
             this.showCashier.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showCashier_CellClick_1);
             // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Column1.DataPropertyName = "PictureCashier";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle7.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle7.NullValue")));
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle7;
-            this.Column1.FillWeight = 304.5685F;
-            this.Column1.HeaderText = "PIC";
-            this.Column1.MinimumWidth = 100;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.DataPropertyName = "FirstName";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle8;
-            this.Column2.FillWeight = 59.08629F;
-            this.Column2.HeaderText = "FIRSTNAME";
-            this.Column2.MinimumWidth = 100;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.DataPropertyName = "Username";
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle9;
-            this.Column3.FillWeight = 59.08629F;
-            this.Column3.HeaderText = "USERNAME";
-            this.Column3.MinimumWidth = 100;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.DataPropertyName = "MiddleName";
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle10;
-            this.Column4.FillWeight = 59.08629F;
-            this.Column4.HeaderText = "MIDDLENAME";
-            this.Column4.MinimumWidth = 100;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "LastName";
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Column5.DefaultCellStyle = dataGridViewCellStyle11;
-            this.Column5.FillWeight = 59.08629F;
-            this.Column5.HeaderText = "LASTNAME";
-            this.Column5.MinimumWidth = 100;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.DataPropertyName = "Gender";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle12;
-            this.Column6.FillWeight = 59.08629F;
-            this.Column6.HeaderText = "GENDER";
-            this.Column6.MinimumWidth = 100;
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            // 
             // label14
             // 
             this.label14.AutoSize = true;
@@ -307,7 +233,7 @@
             this.label14.Location = new System.Drawing.Point(54, 391);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(293, 37);
+            this.label14.Size = new System.Drawing.Size(366, 45);
             this.label14.TabIndex = 20;
             this.label14.Text = "Active Cashier List:";
             // 
@@ -318,7 +244,7 @@
             this.searchBox.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.searchBox.Location = new System.Drawing.Point(722, 397);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(433, 34);
+            this.searchBox.Size = new System.Drawing.Size(433, 41);
             this.searchBox.TabIndex = 21;
             this.searchBox.TextChanged += new System.EventHandler(this.searchBox_TextChanged);
             // 
@@ -332,9 +258,84 @@
             this.label15.Location = new System.Drawing.Point(798, 403);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(156, 20);
+            this.label15.Size = new System.Drawing.Size(194, 25);
             this.label15.TabIndex = 22;
             this.label15.Text = "Search via lastname ";
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Column1.DataPropertyName = "PictureCashier";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.NullValue = ((object)(resources.GetObject("dataGridViewCellStyle1.NullValue")));
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.FillWeight = 304.5685F;
+            this.Column1.HeaderText = "PIC";
+            this.Column1.MinimumWidth = 100;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "FirstName";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Column2.FillWeight = 59.08629F;
+            this.Column2.HeaderText = "FIRSTNAME";
+            this.Column2.MinimumWidth = 100;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "Username";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column3.FillWeight = 59.08629F;
+            this.Column3.HeaderText = "USERNAME";
+            this.Column3.MinimumWidth = 100;
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "MiddleName";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column4.FillWeight = 59.08629F;
+            this.Column4.HeaderText = "MIDDLENAME";
+            this.Column4.MinimumWidth = 100;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "LastName";
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Column5.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column5.FillWeight = 59.08629F;
+            this.Column5.HeaderText = "LASTNAME";
+            this.Column5.MinimumWidth = 100;
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "Gender";
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold);
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Column6.FillWeight = 59.08629F;
+            this.Column6.HeaderText = "GENDER";
+            this.Column6.MinimumWidth = 100;
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // Cashier
             // 
