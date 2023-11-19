@@ -15,54 +15,68 @@ namespace My_First_POS_System_With_DB.Vierwer
     public partial class DashBoardOrder : Form
     {
         DataTable dt; // Declare the DataTable to store retrieved data
-
+        List<DataRow> selectedItems; // List to store selected items
         public DashBoardOrder()
         {
             InitializeComponent();
             Display();
+            selectedItems = new List<DataRow>(); // Initialize the list
         }
         public void Display()
         {
-            // Retrieve image data from the database
-            string query = "SELECT ItemPicture FROM tb_item;"; // Assuming ItemPicture stores image binary data
+            // Retrieve image data and other necessary columns from the database
+            string query = "SELECT Item_ID, ItemName, ItemPrice, ItemPicture FROM tb_item;"; // Include all columns needed in the query
 
-            // Retrieve the DataTable containing image data from the database
-            dt = ConnectionDB.DisplayProduct(query); // Assign the returned DataTable to dt
+            // Retrieve the DataTable containing image data and other columns from the database
+            dt = ConnectionDB.DisplayProduct(query); // Assuming DisplayProduct method fetches data from the database
 
             foreach (DataRow row in dt.Rows)
             {
                 byte[] imageData = (byte[])row["ItemPicture"]; // Assuming ItemPicture is of type BLOB/Binary in the database
 
-                // Convert byte array to Image
                 using (MemoryStream ms = new MemoryStream(imageData))
                 {
-                    PictureBox pictureBox = new PictureBox();
-                    pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pictureBox.Width = 150; // Set picture box width as needed
-                    pictureBox.Height = 150; // Set picture box height as needed
-                    pictureBox.Image = Image.FromStream(ms); // Load image from byte array
+                    Button button = new Button();
+                    button.BackgroundImageLayout = ImageLayout.Zoom;
+                    button.Width = 150;
+                    button.Height = 150;
+                    button.Image = Image.FromStream(ms);
 
-                    // Attach a click event handler to each PictureBox
-                    pictureBox.Click += PictureBox_Click;
+                    // Attach a click event handler to each button
+                    button.Click += Button_Click;
 
-                    flowProduct.Controls.Add(pictureBox); // Add the PictureBox to the FlowLayoutPanel
+                    // Set the Tag property of the button to store the corresponding DataRow
+                    button.Tag = row;
+
+                    flowProduct.Controls.Add(button);
                 }
             }
         }
 
-        // Click event handler for PictureBoxes
-        private void PictureBox_Click(object sender, EventArgs e)
+        // Click event handler for Buttons
+        private void Button_Click(object sender, EventArgs e)
         {
-            // Perform actions when a PictureBox is clicked
-            if (sender is PictureBox clickedPictureBox)
+            if (sender is Button clickedButton)
             {
-                // Example action: Change border color to indicate selection
-                clickedPictureBox.BackColor = Color.Blue;
+                clickedButton.BackColor = Color.Blue;
 
-                // You can perform other actions here when a PictureBox is clicked
+                if (clickedButton.Tag is DataRow row)
+                {
+                    if (!selectedItems.Contains(row))
+                    {
+                        selectedItems.Add(row); // Add the clicked item to the list
+
+                        DataTable selectedData = dt.Clone();
+                        selectedData.ImportRow(row);
+
+                        itemShow.DataSource = null; // Clear previous data source
+                        itemShow.DataSource = selectedItems.CopyToDataTable(); // Display all selected items in the DataGridView
+                    }
+                }
             }
-        }
 
+        }
 
     }
 }
+
