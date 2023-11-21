@@ -127,7 +127,7 @@
             this.label2.Font = new System.Drawing.Font("Elephant", 39.74999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(26, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(655, 87);
+            this.label2.Size = new System.Drawing.Size(520, 68);
             this.label2.TabIndex = 4;
             this.label2.Text = "KENKS  STORE";
             // 
@@ -137,13 +137,13 @@
             this.itemShow.AllowUserToDeleteRows = false;
             this.itemShow.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.itemShow.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.itemShow.Location = new System.Drawing.Point(1002, 23);
+            this.itemShow.Location = new System.Drawing.Point(973, 23);
             this.itemShow.Margin = new System.Windows.Forms.Padding(2);
             this.itemShow.Name = "itemShow";
             this.itemShow.ReadOnly = true;
             this.itemShow.RowHeadersWidth = 51;
             this.itemShow.RowTemplate.Height = 28;
-            this.itemShow.Size = new System.Drawing.Size(323, 626);
+            this.itemShow.Size = new System.Drawing.Size(323, 612);
             this.itemShow.TabIndex = 15;
             // 
             // DashBoardOrder
@@ -151,11 +151,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(1354, 660);
+            this.ClientSize = new System.Drawing.Size(1322, 659);
             this.Controls.Add(this.itemShow);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DashBoardOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashBoardOrder";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

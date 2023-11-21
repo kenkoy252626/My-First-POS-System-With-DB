@@ -56,6 +56,8 @@ namespace My_First_POS_System_With_DB.Vierwer
         // Click event handler for Buttons
         private void Button_Click(object sender, EventArgs e)
         {
+           
+
             if (sender is Button clickedButton)
             {
                 clickedButton.BackColor = Color.Blue;
@@ -76,6 +78,9 @@ namespace My_First_POS_System_With_DB.Vierwer
             }
 
         }
+
+
+
 
     }
 }
