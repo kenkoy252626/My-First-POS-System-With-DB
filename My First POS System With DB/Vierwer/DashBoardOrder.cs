@@ -27,103 +27,6 @@ namespace My_First_POS_System_With_DB.Vierwer
 
 
 
-        public void DisplayCategories()
-        {
-            // Retrieve distinct category names from the database
-            string categoryQuery = "SELECT DISTINCT CategoryProduct, Category_ID FROM tb_category;";
-            DataTable categoryDT = ConnectionDB.DisplayProduct(categoryQuery);
-
-            foreach (DataRow categoryRow in categoryDT.Rows)
-            {
-                string categoryId = categoryRow["Category_ID"].ToString();
-                string categoryName = categoryRow["CategoryProduct"].ToString();
-
-                // Create a button for each category
-                Button categoryButton = new Button();
-                categoryButton.Text = categoryName;
-                categoryButton.Tag = categoryId; // Store category ID in the button's Tag property
-                categoryButton.Click += CategoryButton_Click;
-
-                // Add the category button to the flow panel
-                flowLayoutPanel1.Controls.Add(categoryButton);
-            }
-        }
-        private void CategoryButton_Click(object sender, EventArgs e)
-        {
-            if (sender is Button clickedCategoryButton)
-            {
-                string selectedCategoryId = clickedCategoryButton.Tag.ToString();
-
-                // Retrieve items for the selected category from the database using INNER JOIN
-                string itemsQuery = $"SELECT tb_item.ItemName, tb_item.ItemPrice, tb_item.ItemPicture " +
-                                    $"FROM tb_item " +
-                                    $"INNER JOIN tb_category ON tb_item.Category_ID = tb_category.Category_ID " +
-                                    $"WHERE tb_category.Category_ID = '{selectedCategoryId}';";
-
-                DataTable itemsDT = ConnectionDB.DisplayProduct(itemsQuery);
-
-                if (itemsDT != null && itemsDT.Rows.Count > 0)
-                {
-                    // Display items in the UI (e.g., create buttons for each item)
-                    DisplayItems(itemsDT);
-                }
-                else
-                {
-                    MessageBox.Show("No items found for the selected category.");
-                }
-            }
-        }
-
-        // DisplayItems method remains unchanged
-        private void DisplayItems(DataTable itemsDataTable)
-        {
-            flowProduct.Controls.Clear(); // Clear previous items/buttons
-
-            foreach (DataRow itemRow in itemsDataTable.Rows)
-            {
-                byte[] imageData = (byte[])itemRow["ItemPicture"];
-
-                using (MemoryStream ms = new MemoryStream(imageData))
-                {
-                    Button itemButton = new Button();
-                    itemButton.BackgroundImageLayout = ImageLayout.Zoom;
-                    itemButton.Width = 150;
-                    itemButton.Height = 150;
-                    itemButton.Image = Image.FromStream(ms);
-
-                    // Add other item details or functionality to the button if needed
-                    // ...
-
-                    flowProduct.Controls.Add(itemButton);
-                }
-            }
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -196,6 +99,7 @@ namespace My_First_POS_System_With_DB.Vierwer
 
         // Method to refresh DataGridView with updated data
         // Method to refresh DataGridView with updated data
+        // Method to refresh DataGridView with updated data
         private void RefreshDataGridView()
         {
             // Create a new DataTable to hold the selected items with quantity and total price
@@ -228,6 +132,7 @@ namespace My_First_POS_System_With_DB.Vierwer
 
 
 
+
         // This method should prompt the user for the quantity of items selected
         private int GetQuantityFromUser()
         {
@@ -250,7 +155,167 @@ namespace My_First_POS_System_With_DB.Vierwer
 
 
 
-      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public void DisplayCategories()
+        {
+            // Retrieve distinct category names from the database
+            string categoryQuery = "SELECT DISTINCT CategoryProduct, Category_ID FROM tb_category;";
+            DataTable categoryDT = ConnectionDB.DisplayProduct(categoryQuery);
+
+            foreach (DataRow categoryRow in categoryDT.Rows)
+            {
+                string categoryId = categoryRow["Category_ID"].ToString();
+                string categoryName = categoryRow["CategoryProduct"].ToString();
+
+                // Create a button for each category
+                Button categoryButton = new Button();
+                categoryButton.Text = categoryName;
+                categoryButton.Tag = categoryId; // Store category ID in the button's Tag property
+                categoryButton.Click += CategoryButton_Click;
+
+                // Add the category button to the flow panel
+                flowLayoutPanel1.Controls.Add(categoryButton);
+            }
+        }
+        private void CategoryButton_Click(object sender, EventArgs e)
+        {
+            if (sender is Button clickedCategoryButton)
+            {
+                string selectedCategoryId = clickedCategoryButton.Tag.ToString();
+
+                // Retrieve items for the selected category from the database
+                string itemsQuery = $"SELECT tb_item.Item_ID, tb_item.ItemName, tb_item.ItemPrice, tb_item.ItemPicture, tb_item.Category_ID " +
+                                    $"FROM tb_item " +
+                                    $"INNER JOIN tb_category ON tb_item.Category_ID = tb_category.Category_ID " +
+                                    $"WHERE tb_category.Category_ID = '{selectedCategoryId}';";
+
+                DataTable itemsDT = ConnectionDB.DisplayProduct(itemsQuery);
+
+                if (itemsDT != null && itemsDT.Rows.Count > 0)
+                {
+                    // Ensure 'Quantity' column exists in the itemsDT DataTable
+                    if (!itemsDT.Columns.Contains("Quantity"))
+                    {
+                        itemsDT.Columns.Add("Quantity", typeof(int));
+                    }
+
+                    // Update quantities of previously selected items within this category
+                    foreach (DataRow itemRow in itemsDT.Rows)
+                    {
+                        DataRow selectedRow = selectedItems.FirstOrDefault(row => (int)row["Item_ID"] == (int)itemRow["Item_ID"]);
+                        if (selectedRow != null)
+                        {
+                            int quantity = Convert.ToInt32(selectedRow["Quantity"]);
+                            itemRow["Quantity"] = quantity;
+                        }
+                        else
+                        {
+                            // If an item in the category was not previously selected, set its quantity to zero
+                            itemRow["Quantity"] = 0;
+                        }
+                    }
+
+                    // Display items in the UI
+                    DisplayItems(itemsDT);
+                }
+                else
+                {
+                    MessageBox.Show("No items found for the selected category.");
+                }
+            }
+        }
+
+
+
+        // DisplayItems method remains unchanged
+        private void DisplayItems(DataTable itemsDataTable)
+        {
+            flowProduct.Controls.Clear(); // Clear previous items/buttons
+
+            foreach (DataRow itemRow in itemsDataTable.Rows)
+            {
+                byte[] imageData = (byte[])itemRow["ItemPicture"];
+
+                using (MemoryStream ms = new MemoryStream(imageData))
+                {
+                    Button itemButton = new Button();
+                    itemButton.BackgroundImageLayout = ImageLayout.Zoom;
+                    itemButton.Width = 150;
+                    itemButton.Height = 150;
+                    itemButton.Image = Image.FromStream(ms);
+
+                    string itemName = itemRow["ItemName"].ToString();
+                    int itemId = Convert.ToInt32(itemRow["Item_ID"]);
+
+                    // Check if the 'Quantity' column exists in 'itemsDataTable'
+                    if (!itemsDataTable.Columns.Contains("Quantity"))
+                    {
+                        // If 'Quantity' column doesn't exist, add it
+                        itemsDataTable.Columns.Add("Quantity", typeof(int));
+                    }
+
+                    int quantity = 0; // Initialize quantity to zero
+                    DataRow selectedRow = selectedItems.FirstOrDefault(row => (int)row["Item_ID"] == itemId);
+                    if (selectedRow != null && selectedRow.Table.Columns.Contains("Quantity"))
+                    {
+                        quantity = Convert.ToInt32(selectedRow["Quantity"]);
+                    }
+
+                    // Set the button text to include the item name and quantity
+                    itemButton.Text = $"{itemName}\nQuantity: {quantity}";
+
+                    // Add a click event handler for the item button
+                    itemButton.Click += (sender, e) => {
+                        if (sender is Button clickedButton)
+                        {
+                            DataRow row = itemsDataTable.AsEnumerable().FirstOrDefault(r => (int)r["Item_ID"] == itemId);
+                            if (row != null)
+                            {
+                                // Prompt user for quantity
+                                int newQuantity = GetQuantityFromUser();
+
+                                if (newQuantity > 0)
+                                {
+                                    if (selectedRow == null)
+                                    {
+                                        // If the item is not already in the selectedItems list, add it
+                                        row["Quantity"] = newQuantity;
+                                        selectedItems.Add(row);
+                                    }
+                                    else
+                                    {
+                                        // If the item is already in the selectedItems list, update its quantity
+                                        selectedRow["Quantity"] = newQuantity;
+                                    }
+
+                                    // Refresh DataGridView with updated data
+                                    RefreshDataGridView();
+                                }
+                            }
+                        }
+                    };
+
+                    // Add other item details or functionality to the button if needed
+                    // ...
+
+                    flowProduct.Controls.Add(itemButton);
+                }
+            }
+        }
+
 
 
 
