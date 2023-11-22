@@ -20,9 +20,112 @@ namespace My_First_POS_System_With_DB.Vierwer
         public DashBoardOrder()
         {
             InitializeComponent();
+            DisplayCategories(); // Call the method to display categories
             Display();
             selectedItems = new List<DataRow>(); // Initialize the list
         }
+
+
+
+        public void DisplayCategories()
+        {
+            // Retrieve distinct category names from the database
+            string categoryQuery = "SELECT DISTINCT CategoryProduct, Category_ID FROM tb_category;";
+            DataTable categoryDT = ConnectionDB.DisplayProduct(categoryQuery);
+
+            foreach (DataRow categoryRow in categoryDT.Rows)
+            {
+                string categoryId = categoryRow["Category_ID"].ToString();
+                string categoryName = categoryRow["CategoryProduct"].ToString();
+
+                // Create a button for each category
+                Button categoryButton = new Button();
+                categoryButton.Text = categoryName;
+                categoryButton.Tag = categoryId; // Store category ID in the button's Tag property
+                categoryButton.Click += CategoryButton_Click;
+
+                // Add the category button to the flow panel
+                flowLayoutPanel1.Controls.Add(categoryButton);
+            }
+        }
+        private void CategoryButton_Click(object sender, EventArgs e)
+        {
+            if (sender is Button clickedCategoryButton)
+            {
+                string selectedCategoryId = clickedCategoryButton.Tag.ToString();
+
+                // Retrieve items for the selected category from the database using INNER JOIN
+                string itemsQuery = $"SELECT tb_item.ItemName, tb_item.ItemPrice, tb_item.ItemPicture " +
+                                    $"FROM tb_item " +
+                                    $"INNER JOIN tb_category ON tb_item.Category_ID = tb_category.Category_ID " +
+                                    $"WHERE tb_category.Category_ID = '{selectedCategoryId}';";
+
+                DataTable itemsDT = ConnectionDB.DisplayProduct(itemsQuery);
+
+                if (itemsDT != null && itemsDT.Rows.Count > 0)
+                {
+                    // Display items in the UI (e.g., create buttons for each item)
+                    DisplayItems(itemsDT);
+                }
+                else
+                {
+                    MessageBox.Show("No items found for the selected category.");
+                }
+            }
+        }
+
+        // DisplayItems method remains unchanged
+        private void DisplayItems(DataTable itemsDataTable)
+        {
+            flowProduct.Controls.Clear(); // Clear previous items/buttons
+
+            foreach (DataRow itemRow in itemsDataTable.Rows)
+            {
+                byte[] imageData = (byte[])itemRow["ItemPicture"];
+
+                using (MemoryStream ms = new MemoryStream(imageData))
+                {
+                    Button itemButton = new Button();
+                    itemButton.BackgroundImageLayout = ImageLayout.Zoom;
+                    itemButton.Width = 150;
+                    itemButton.Height = 150;
+                    itemButton.Image = Image.FromStream(ms);
+
+                    // Add other item details or functionality to the button if needed
+                    // ...
+
+                    flowProduct.Controls.Add(itemButton);
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         public void Display()
         {
@@ -140,5 +243,16 @@ namespace My_First_POS_System_With_DB.Vierwer
 
             return 0; // Return 0 if the user cancels the input or provides an invalid quantity
         }
+
+
+
+
+
+
+
+      
+
+
+
     }
 }
