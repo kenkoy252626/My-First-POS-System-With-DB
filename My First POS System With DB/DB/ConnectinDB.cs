@@ -12,7 +12,7 @@ namespace My_First_POS_System_With_DB
 {
     internal class ConnectionDB
     {
-        public static string con = "Server=localhost;Port=3306;Database=pointofsale_db;User Id=root;Password='';";
+        public static string con = "Server=localhost;Port=3306;Database=pointofsale;User Id=root;Password='';";
 
         public static MySqlConnection GetConnection()
         {

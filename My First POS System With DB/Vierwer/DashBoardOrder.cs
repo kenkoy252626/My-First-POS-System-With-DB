@@ -23,8 +23,8 @@ namespace My_First_POS_System_With_DB.Vierwer
             DisplayCategories(); // Call the method to display categories
             Display();
             selectedItems = new List<DataRow>(); // Initialize the list
-        }
 
+        }
 
 
 
