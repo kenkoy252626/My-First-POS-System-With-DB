@@ -34,7 +34,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.itemShow = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.itemShow)).BeginInit();
@@ -61,7 +60,6 @@
             // 
             // flowProduct
             // 
-            this.flowProduct.AutoScroll = true;
             this.flowProduct.Location = new System.Drawing.Point(178, 98);
             this.flowProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowProduct.Name = "flowProduct";
@@ -102,25 +100,15 @@
             this.itemShow.ReadOnly = true;
             this.itemShow.RowHeadersWidth = 51;
             this.itemShow.RowTemplate.Height = 28;
-            this.itemShow.Size = new System.Drawing.Size(594, 627);
+            this.itemShow.Size = new System.Drawing.Size(594, 760);
             this.itemShow.TabIndex = 15;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(1425, 728);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(318, 72);
-            this.button2.TabIndex = 17;
-            this.button2.Text = "PLACE ORDER";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // DashBoardOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(49)))), ((int)(((byte)(68)))));
-            this.ClientSize = new System.Drawing.Size(1904, 920);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1904, 819);
             this.Controls.Add(this.itemShow);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -144,6 +132,5 @@
         private System.Windows.Forms.FlowLayoutPanel flowProduct;
         private System.Windows.Forms.DataGridView itemShow;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button button2;
     }
 }

@@ -1,4 +1,4 @@
-﻿ using ServiceStack;
+﻿using ServiceStack;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +14,6 @@ namespace My_First_POS_System_With_DB.Admin
 {
     public partial class AddItems : Form
     {
-       
-
         public AddItems()
         {
             InitializeComponent();
@@ -49,27 +47,27 @@ namespace My_First_POS_System_With_DB.Admin
             // Clear the text boxes, ComboBox, and set the PictureBox image to null
             itemname.Clear();
             itemprice.Clear();
-            itemCode.Clear();
+            itemstock.Clear();
             combocategory.SelectedIndex = -1;
             pictureitem.Image = null;
         }
 
         private void Additem_Click(object sender, EventArgs e)
         {
-            string Name = itemname.Text.Trim();
-            string PriceInput = itemprice.Text.Trim(); // Changed variable name for clarity
-            string codeInput = itemCode.Text.Trim();
-            string type = combocategory.SelectedItem?.ToString();
-            Image image = pictureitem.Image;
-            DateTime date = Date.Value;
 
-            if (string.IsNullOrEmpty(Name) || string.IsNullOrEmpty(PriceInput) || string.IsNullOrEmpty(codeInput))
+            string itemName = itemname.Text.Trim();
+            string itemPrice = itemprice.Text.Trim();
+            string itemStock = itemstock.Text.Trim();
+            string category = combocategory.SelectedItem?.ToString();
+            Image image = pictureitem.Image;
+
+            if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(itemPrice) || string.IsNullOrEmpty(itemStock) || string.IsNullOrEmpty(category))
             {
                 MessageBox.Show("Please fill in all the required fields with valid values.");
                 return;
             }
 
-            if (!decimal.TryParse(PriceInput, out decimal parsedPrices) || !int.TryParse(codeInput, out int parsedCode))
+            if (!decimal.TryParse(itemPrice, out decimal itemPrices) || !int.TryParse(itemStock, out int itemStocks))
             {
                 MessageBox.Show("Please enter valid numeric values for price and stock.");
                 return;
@@ -83,7 +81,7 @@ namespace My_First_POS_System_With_DB.Admin
 
             try
             {
-                ConnectionDB.AddProduct(Name, parsedCode, type, parsedPrices, image, date);
+                ConnectionDB.AddProduct(itemName, itemPrices, itemStocks, image, category);
                 MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -92,16 +90,23 @@ namespace My_First_POS_System_With_DB.Admin
             }
 
             ClearForm();
+
+
+
         }
-
-
 
         public void Display()
         {
             // Specify the SQL query with the join
-            string query = "SELECT * FROM foodmenu";
-
-
+            string query = "SELECT " +
+                   "UPPER(tb_item.ItemName) AS ItemName, " +
+                   "UPPER(tb_category.CategoryProduct) AS CategoryProduct, " +
+                   "tb_item.ItemPrice, " +
+                   "tb_item.ItemStock, " +
+                   "UPPER(tb_item.ItemPicture) AS ItemPicture, " +
+                   "tb_item.Item_ID " +
+                   "FROM tb_item " +
+                   "INNER JOIN tb_category ON tb_item.Category_ID = tb_category.Category_ID;";
 
 
             // Assuming that DisplayAndSearch takes the query and dataGridView as parameters
@@ -115,13 +120,14 @@ namespace My_First_POS_System_With_DB.Admin
         }
         private void Search(string searchTerm)
         {
-            string query = $"SELECT `FoodPic`, `FoodName`, `FoodID`, `FoodType`, `FoodPrice`, `FoodDateCreated` FROM `foodmenu`" +
-    $" WHERE `FoodDateCreated` LIKE '%{searchTerm}%' OR " +
-    $" `FoodName` LIKE '%{searchTerm}%' OR " +
-    $" `FoodID` LIKE '%{searchTerm}%' OR " +
-    $" `FoodType` LIKE '%{searchTerm}%';";
-
-
+            string query = $"SELECT tb_item.ItemName, tb_category.CategoryProduct, tb_item.ItemPrice, tb_item.ItemStock, tb_item.ItemPicture " +
+                           $"FROM tb_item " +
+                           $"INNER JOIN tb_category ON tb_item.Category_ID = tb_category.Category_ID " +
+                           $"WHERE tb_item.ItemName LIKE '%{searchTerm}%' OR " +
+                           $"tb_category.CategoryProduct LIKE '%{searchTerm}%' OR " +
+                           $"tb_item.ItemPrice LIKE '%{searchTerm}%' OR " +
+                           $"tb_item.ItemStock LIKE '%{searchTerm}%' OR " +
+                           $"tb_item.ItemPicture LIKE '%{searchTerm}%';";
 
             ConnectionDB.DisplayAndSearch(query, itemShow);
         }
@@ -136,64 +142,47 @@ namespace My_First_POS_System_With_DB.Admin
 
 
 
-        private void itemShow_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void itemShow_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = itemShow.Rows[e.RowIndex];
 
-                 itemname.Text = selectedRow.Cells["FoodName"].Value?.ToString();
-              itemprice.Text = selectedRow.Cells["FoodPrice"].Value?.ToString();
-              itemCode.Text = selectedRow.Cells["FoodID"].Value?.ToString();
-                combocategory.Text = selectedRow.Cells["FoodType"].Value?.ToString();
-
-
-                // Load the image into the PictureBox if available
-                object imageDataObj = selectedRow.Cells["FoodPic"].Value;
-                if (imageDataObj != DBNull.Value && imageDataObj != null && imageDataObj is byte[] imageData && imageData.Length > 0)
+                if (itemShow.Columns.Count >= 7) // Ensure at least 6 columns exist
                 {
-                    using (MemoryStream ms = new MemoryStream(imageData))
+                    // Display other details in respective controls
+                    itemname.Text = selectedRow.Cells["Column1"].Value?.ToString();
+                    itemprice.Text = selectedRow.Cells["Column3"].Value?.ToString();
+                    itemstock.Text = selectedRow.Cells["Column4"].Value?.ToString();
+                    combocategory.Text = selectedRow.Cells["Column2"].Value?.ToString();
+                    // Load the image into the PictureBox if available
+                    object imageDataObj = selectedRow.Cells["Column5"].Value;
+                    if (imageDataObj != DBNull.Value && imageDataObj != null)
                     {
-                        pictureitem.Image = Image.FromStream(ms);
+                        if (imageDataObj is byte[] imageData && imageData.Length > 0)
+                        {
+                            using (MemoryStream ms = new MemoryStream(imageData))
+                            {
+                                pictureitem.Image = Image.FromStream(ms);
+                            }
+                        }
+                        else
+                        {
+                            pictureitem.Image = null; // No image available or empty byte array
+                        }
+                    }
+                    else
+                    {
+                        pictureitem.Image = null; // No image available or NULL value
                     }
                 }
-                else
-                {
-                    pictureitem.Image = null; // No image available or empty byte array
-                }
-
-
             }
+
         }
 
-        private void Delete_Click(object sender, EventArgs e)
-        {
-          
-            if (itemShow.SelectedRows.Count > 0) // Check if a row is selected
-            {
-                MessageBox.Show("Are you sure you want to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                int foodId = Convert.ToInt32(itemShow.SelectedRows[0].Cells["FoodID"].Value);
-
-                ConnectionDB.Delete(foodId);
-
-                
-                MessageBox.Show("Record deleted successfully.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                // Handle the case when no row is selected, show a message, etc.
-                MessageBox.Show("Please select a row to delete.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
-
-
+     
     }
-}
-
-
-
-
-
+    }
 
 
 
