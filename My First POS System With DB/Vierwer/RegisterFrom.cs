@@ -4,10 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using My_First_POS_System_With_DB;
 namespace My_First_POS_System_With_DB.Vierwer
 {
@@ -51,29 +51,42 @@ namespace My_First_POS_System_With_DB.Vierwer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Get data from the form
-            string firstName = UserBox.Text.Trim();
-            string middlename = midBox.Text.Trim();
+            string name = UserBox.Text.Trim();
+            string address = midBox.Text.Trim();
             string lastName = LastBox.Text.Trim();
-            string gender = Gender.SelectedItem?.ToString(); // Assuming you have a ComboBox for gender
-            Image image = imageDisplay.Image;// Assuming you have a PictureBox on your form
-            string username = UserName.Text.Trim(); // Assuming you have a TextBox for username
+            string gender = Gender.SelectedItem?.ToString();
+            Image image = imageDisplay.Image;
+            string email = UserName.Text.Trim();
+            DateTime bday = dateTime.Value; // Assuming you have a DateTimePicker named dateTimePicker1 for selecting the birthdate.
             string password = Password.Text.Trim();
 
-            // Validate that all required fields are filled
-            if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(gender) ||
-     string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(gender) ||
+                string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
             {
                 MessageBox.Show("Please fill in all the required fields.");
                 return;
             }
 
-            // Call the UserRegistration class to handle registration
-            ConnectionDB.RegisterUser(firstName, lastName, gender, image,middlename,username,password);
+            // Hash the password before sending it to the registration method.
+            string hashedPassword = HashPassword(password);
 
-            // You can also clear the form or perform other actions as needed
-            ClearForm();
+            ConnectionDB.RegisterUser(name, bday, gender, image, address, email, hashedPassword);
+
+            ClearForm(); // Ensure this method works correctly to clear the form fields.
         }
+
+        private string HashPassword(string password)
+        {
+            // Implement a secure hashing algorithm (e.g., bcrypt, Argon2) to hash the password.
+            // Example using System.Security.Cryptography:
+
+            using (var sha256 = SHA256.Create())
+            {
+                byte[] hashedBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
+                return Convert.ToBase64String(hashedBytes);
+            }
+        }
+
 
     }
 }

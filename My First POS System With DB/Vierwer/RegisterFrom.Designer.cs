@@ -31,7 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Gender = new System.Windows.Forms.ComboBox();
             this.imageDisplay = new System.Windows.Forms.PictureBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTime = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
             this.Login = new System.Windows.Forms.Button();
             this.showPass = new System.Windows.Forms.CheckBox();
@@ -50,6 +50,7 @@
             this.midBox = new System.Windows.Forms.TextBox();
             this.UserBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageDisplay)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +59,10 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.Gender);
             this.panel2.Controls.Add(this.imageDisplay);
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.dateTime);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.Login);
             this.panel2.Controls.Add(this.showPass);
@@ -90,7 +92,7 @@
             this.Gender.Items.AddRange(new object[] {
             "MALE",
             "FEMALE"});
-            this.Gender.Location = new System.Drawing.Point(259, 430);
+            this.Gender.Location = new System.Drawing.Point(251, 430);
             this.Gender.Name = "Gender";
             this.Gender.Size = new System.Drawing.Size(199, 24);
             this.Gender.TabIndex = 26;
@@ -106,13 +108,13 @@
             this.imageDisplay.TabIndex = 12;
             this.imageDisplay.TabStop = false;
             // 
-            // dateTimePicker1
+            // dateTime
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(162, 478);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(379, 22);
-            this.dateTimePicker1.TabIndex = 25;
+            this.dateTime.Location = new System.Drawing.Point(162, 478);
+            this.dateTime.Margin = new System.Windows.Forms.Padding(4);
+            this.dateTime.Name = "dateTime";
+            this.dateTime.Size = new System.Drawing.Size(379, 22);
+            this.dateTime.TabIndex = 25;
             // 
             // button2
             // 
@@ -204,12 +206,12 @@
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label1.Location = new System.Drawing.Point(70, 272);
+            this.label1.Location = new System.Drawing.Point(66, 273);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 25);
+            this.label1.Size = new System.Drawing.Size(82, 25);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Middle Name";
+            this.label1.Text = "Address";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -232,7 +234,7 @@
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label2.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.label2.Location = new System.Drawing.Point(70, 341);
+            this.label2.Location = new System.Drawing.Point(66, 342);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(103, 25);
@@ -246,7 +248,7 @@
             this.userText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.userText.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userText.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.userText.Location = new System.Drawing.Point(70, 204);
+            this.userText.Location = new System.Drawing.Point(66, 205);
             this.userText.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.userText.Name = "userText";
             this.userText.Size = new System.Drawing.Size(106, 25);
@@ -306,7 +308,7 @@
             this.LastBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.LastBox.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LastBox.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.LastBox.Location = new System.Drawing.Point(200, 332);
+            this.LastBox.Location = new System.Drawing.Point(196, 333);
             this.LastBox.Margin = new System.Windows.Forms.Padding(4);
             this.LastBox.Multiline = true;
             this.LastBox.Name = "LastBox";
@@ -318,7 +320,7 @@
             this.midBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.midBox.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.midBox.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.midBox.Location = new System.Drawing.Point(200, 261);
+            this.midBox.Location = new System.Drawing.Point(196, 262);
             this.midBox.Margin = new System.Windows.Forms.Padding(4);
             this.midBox.Multiline = true;
             this.midBox.Name = "midBox";
@@ -330,7 +332,7 @@
             this.UserBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(245)))), ((int)(((byte)(237)))));
             this.UserBox.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserBox.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.UserBox.Location = new System.Drawing.Point(200, 196);
+            this.UserBox.Location = new System.Drawing.Point(196, 197);
             this.UserBox.Margin = new System.Windows.Forms.Padding(4);
             this.UserBox.Multiline = true;
             this.UserBox.Name = "UserBox";
@@ -347,6 +349,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(167, 700);
             this.panel1.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.label7.Location = new System.Drawing.Point(70, 478);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(55, 25);
+            this.label7.TabIndex = 27;
+            this.label7.Text = "Bday";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // RegisterFrom
             // 
@@ -389,7 +405,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button Login;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTime;
         private System.Windows.Forms.ComboBox Gender;
+        private System.Windows.Forms.Label label7;
     }
 }
